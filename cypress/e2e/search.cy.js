@@ -9,6 +9,7 @@ describe('IMDB Search ', () => {
     cy.get(selectors.searchIcon).click()
     //imdb site is flaky here it opens sometimes a different UI
     cy.contains(RegExp("Shazam!"))
-    .get('[data-testid="find-results-section-title"]').contains("2019")
+    //additional check to make sure the movie year
+    .get(selectors.resultsSection).contains("2019")
   })
 })
