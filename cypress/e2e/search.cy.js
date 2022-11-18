@@ -12,4 +12,35 @@ describe('IMDB Search ', () => {
     //additional check to make sure the movie year
     .get(selectors.resultsSection).contains("2019")
   })
+
+  it('verify placeholder is visisble', () => {
+    cy.get(selectors.searchInput).should('have.attr','placeholder', 'Search IMDb')
+  })
+
+ it('searches by pressing ENTER', () => {
+  //Pressing the Enter key from the keyboard
+    cy.get(selectors.searchInput)
+      .type('shazam{enter}')
+      cy.contains(RegExp("Shazam!"))
+  })
+
+  it('searches for invalid results', () => {
+    cy.get(selectors.searchInput)
+      .type('////////')
+      cy.get(selectors.searchIcon).click()
+      cy.contains(RegExp("No results found"))
+  })
+
+  it('empty search result', () => {
+    cy.get(selectors.searchInput)
+      .type('{enter}')
+      cy.contains(RegExp("Search IMDb by typing a word"))
+  })
+
+  it('verify selection from autofill results', () => {
+    cy.get(selectors.searchInput)
+      .type('shazam')
+      cy.get(selectors.autoSuggestions).should('be.visible').click()
+      cy.get(selectors.movie).should('have.text', "Shazam! Fury of the Gods")
+  })
 })
