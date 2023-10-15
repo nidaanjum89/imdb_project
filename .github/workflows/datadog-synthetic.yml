@@ -1,0 +1,25 @@
+name: Run Datadog Synthetic tests with tag "imdb"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up the Datadog CLI
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install the Datadog CLI
+        run: pip install datadog
+
+      - name: Run Datadog Synthetic tests with tag "imdb"
+        uses: DataDog/synthetics-ci-github-action@v1
+        with:
+          datadog_api_key: ${{ secrets.DATADOG_API_KEY }}
+          test_search_query: "tag:imdb"
