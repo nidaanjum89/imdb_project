@@ -22,5 +22,5 @@ jobs:
         uses: DataDog/synthetics-ci-github-action@v0.20.0
             
         with:
-          datadog_api_key: ${{ secrets.DATADOG_API_KEY }}
+          api_key: ${{ secrets.DATADOG_API_KEY }}
           test_search_query: "tag:imdb"
