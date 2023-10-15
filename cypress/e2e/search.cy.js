@@ -17,7 +17,7 @@ describe('IMDB Search ', () => {
     cy.get(selectors.searchInput).should('have.attr','placeholder', 'Search IMDb')
   })
 
- it('searches by pressing ENTER', () => {
+ it('searches by pressing key ENTER', () => {
   //Pressing the Enter key from the keyboard
     cy.get(selectors.searchInput)
       .type('shazam{enter}')
