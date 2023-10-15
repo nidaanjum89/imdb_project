@@ -18,8 +18,9 @@ jobs:
       - name: Install the Datadog CLI
         run: pip install datadog
 
-      - name: Run Datadog Synthetic tests with tag "imdb"
-        uses: DataDog/synthetics-ci-github-action@v1
+      - name: Datadog Synthetics CI
+        uses: DataDog/synthetics-ci-github-action@v0.20.0
+            
         with:
           datadog_api_key: ${{ secrets.DATADOG_API_KEY }}
           test_search_query: "tag:imdb"
