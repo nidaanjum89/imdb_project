@@ -19,7 +19,7 @@ jobs:
         run: pip install datadog
 
       - name: Datadog Synthetics CI
-        uses: DataDog/synthetics-ci-github-action@v0.20.0
+        uses: DataDog/synthetics-ci-github-action@v0.21.0
             
         with:
           datadog_api_key: ${{ secrets.DATADOG_API_KEY }}
