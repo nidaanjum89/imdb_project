@@ -1,7 +1,7 @@
 # imdb_project
 ## Purpose
-To run IMDb basic search function as part of technical task
-## Pre-requisits  
+Projects that checks imdb wesbite search functionality feature
+## Pre-requisites  
 NodeJs https://nodejs.org/en/download/   
 To make sure its downloaded run
 ``` node -v ```  
